@@ -1,6 +1,7 @@
-const LayoutType1 = () => { 
+const LayoutType1 = ({page}) => { 
     return <>
         LayoutType1
+        page: {page}
     </>
 }
 
