@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 // data
 import json from '../../data.json';
 // components
@@ -25,20 +25,20 @@ import background_technology_mobile  from '../../assets/technology/background_te
 
 
 const Page = ({ page, type }) => {
-  const [pageBgStyles, setPageBgStyles] = useState({backgroundImage: `url(${null})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center right', backgroundRepeat: 'no-repeat', backgroundColor: '#000'});
+  const [pageBgStyles, setPageBgStyles] = useState({height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center right', backgroundRepeat: 'no-repeat', backgroundColor: '#000'});
   const { width } = useWindowDimensions();
-  
-  const responsiveImages = (desktop, tablet, mobile) => {
-    if (width > 375 && width < 768) {
-      setPageBgStyles({...pageBgStyles, backgroundImage: `url(${tablet})`});
-    } else if (width < 375) {
-      setPageBgStyles({...pageBgStyles, backgroundImage: `url(${mobile})`});
-    } else {
-      setPageBgStyles({...pageBgStyles, backgroundImage: `url(${desktop})`});
-    }
-  }
 
   useEffect(() => {
+    const responsiveImages = (desktop, tablet, mobile) => {
+      if (width > 375 && width < 768) {
+        setPageBgStyles({...pageBgStyles, backgroundImage: `url(${tablet})`});
+      } else if (width < 375) {
+        setPageBgStyles({...pageBgStyles, backgroundImage: `url(${mobile})`});
+      } else {
+        setPageBgStyles({...pageBgStyles, backgroundImage: `url(${desktop})`});
+      }
+    }
+    
     if (page === 'home') {
       responsiveImages(background_home_desktop, background_home_tablet, background_home_mobile);
     } else if (page === 'destinations') {
@@ -49,13 +49,12 @@ const Page = ({ page, type }) => {
       responsiveImages(background_technology_desktop, background_technology_tablet, background_technology_mobile);
     }
   }, [page, width])
-
-
+  
+  
   return (
     <section style={pageBgStyles}>
-     <Nav />
+      <Nav />
       <Layout page={page} data={json} type={type}/>
-      <p>type: {type}</p>
     </section>
   )
 }
