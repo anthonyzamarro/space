@@ -13,7 +13,7 @@ const Nav = () => {
         </g>
       </svg>
       <div>
-        <Link to='/'>Home</Link> | <Link to='/destination'>Destination</Link> |{" "}
+        <Link to='/'>Home</Link> | <Link to='/destinations'>Destinations</Link> |{" "}
         <Link to='/crew'>Crew</Link> | <Link to='/technology'>Technology</Link>
       </div>
     </nav>

@@ -2,12 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
 import App from "./App"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-// import Technology from "./components/page/Technology"
-// import Home from "./components/page/Home"
-// import Destination from "./components/page/Destination"
-// import Crew from "./components/page/Crew"
-
+import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.render(
   <React.StrictMode>
