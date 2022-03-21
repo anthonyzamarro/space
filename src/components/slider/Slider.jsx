@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 const Slider = ({data}) => {
-    const [sliderButtons, setSliderButtons] = useState();
+    const [sliderButtons,] = useState(data.map(info => info.name));
 
-    useEffect(() => {
-        const getButtonNames = data.map(info => info.name);
-        setSliderButtons(getButtonNames);
-    }, [data]);
+    // useEffect(() => {
+    //     const getButtonNames = data.map(info => info.name);
+    //     setSliderButtons(getButtonNames);
+    // }, [data]);
 
     return  <>
     {sliderButtons && sliderButtons.map((button, index) => <button key={index}>{button}</button>)}
